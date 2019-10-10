@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.btyc.modules.user.dao.MemberDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.btyc.modules.user.entity.MemberEntity" id="memberMap">
+        <result property="id" column="ID"/>
+        <result property="userId" column="USER_ID"/>
+        <result property="name" column="NAME"/>
+        <result property="sex" column="SEX"/>
+        <result property="birthDay" column="BIRTH_DAY"/>
+        <result property="weight" column="WEIGHT"/>
+        <result property="height" column="HEIGHT"/>
+        <result property="relation" column="RELATION"/>
+        <result property="mobile" column="MOBILE"/>
+        <result property="isSelf" column="IS_SELF"/>
+    </resultMap>
+
+
+</mapper>

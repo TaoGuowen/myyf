@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.btyc.modules.payment.dao.TypeDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.btyc.modules.payment.entity.TypeEntity" id="typeMap">
+        <result property="id" column="ID"/>
+        <result property="code" column="CODE"/>
+        <result property="name" column="NAME"/>
+        <result property="styleClass" column="STYLE_CLASS"/>
+        <result property="payUri" column="PAY_URI"/>
+        <result property="sortNo" column="SORT_NO"/>
+    </resultMap>
+
+
+</mapper>

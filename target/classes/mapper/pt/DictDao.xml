@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.btyc.modules.pt.dao.DictDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.btyc.modules.pt.entity.DictEntity" id="dictMap">
+        <result property="id" column="ID"/>
+        <result property="busiType" column="BUSI_TYPE"/>
+        <result property="codeValue" column="CODE_VALUE"/>
+        <result property="codeName" column="CODE_NAME"/>
+        <result property="sortNo" column="SORT_NO"/>
+        <result property="remark" column="REMARK"/>
+    </resultMap>
+
+
+</mapper>

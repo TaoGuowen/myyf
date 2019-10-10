@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.btyc.modules.product.dao.OrderDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.btyc.modules.product.entity.OrderEntity" id="orderMap">
+        <result property="no" column="NO"/>
+        <result property="number" column="NUMBER"/>
+        <result property="userId" column="USER_ID"/>
+        <result property="spuId" column="SPU_ID"/>
+        <result property="skuId" column="SKU_ID"/>
+        <result property="spuName" column="SPU_NAME"/>
+        <result property="skuName" column="SKU_NAME"/>
+        <result property="typeCode" column="TYPE_CODE"/>
+        <result property="code" column="CODE"/>
+        <result property="money" column="MONEY"/>
+        <result property="payType" column="PAY_TYPE"/>
+        <result property="cardInfoId" column="CARD_INFO_ID"/>
+        <result property="name" column="NAME"/>
+        <result property="mobile" column="MOBILE"/>
+        <result property="createTime" column="CREATE_TIME"/>
+        <result property="statusCode" column="STATUS_CODE"/>
+        <result property="tradeId" column="TRADE_ID"/>
+        <result property="payMethod" column="PAY_METHOD"/>
+    </resultMap>
+
+    <select id="queryOrders" resultType="java.util.Map">
+        SELECT
+            o.`NO` as `no`,
+            o.NUMBER number,
+            i.`NAME` checkItem ,
+            d.CODE_NAME statusName,
+            o.CREATE_TIME createTime
+        FROM
+            PRODUCT_ORDER o
+        LEFT JOIN PRODUCT_SKU s ON o.SKU_ID = s.ID
+        LEFT JOIN PRODUCT_CHECK_ITEM i ON i.`CODE` = s.CHECK_CODE
+        LEFT JOIN PT_DICT d ON d.CODE_VALUE = o.STATUS_CODE
+        AND d.BUSI_TYPE = 'orderStatus'
+        WHERE o.USER_ID=#{userId}
+    </select>
+
+    <insert id="createOrder" useGeneratedKeys="true" keyProperty="no" parameterType="com.btyc.modules.product.entity.OrderEntity">
+        INSERT INTO PRODUCT_ORDER (
+            USER_ID,
+            SPU_ID,
+            SKU_ID,
+            SPU_NAME,
+            SKU_NAME,
+            TYPE_CODE,
+            'CODE',
+            MONEY,
+            PAY_TYPE,
+            CARD_INFO_ID,
+            'NAME',
+            MOBILE,
+            CREATE_TIME,
+            STATUS_CODE,
+            TRADE_ID,
+            PAY_METHOD
+        )
+        VALUES(
+            #{userId},
+            #{spuId},
+            #{skuId},
+            #{spuName},
+            #{skuName},
+            #{typeCode},
+            #{code},
+            #{money},
+            #{payType},
+            #{cardInfoId},
+            #{name},
+            #{mobile},
+            #{createTime},
+            #{statusCode},
+            #{tradeId},
+            #{payMethod}
+            )
+    </insert>
+
+</mapper>

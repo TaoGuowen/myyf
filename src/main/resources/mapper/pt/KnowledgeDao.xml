@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.btyc.modules.pt.dao.KnowledgeDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.btyc.modules.pt.entity.KnowledgeEntity" id="knowledgeMap">
+        <result property="id" column="ID"/>
+        <result property="typeCode" column="TYPE_CODE"/>
+        <result property="title" column="TITLE"/>
+        <result property="content" column="CONTENT"/>
+        <result property="expert" column="EXPERT"/>
+        <result property="statusCode" column="STATUS_CODE"/>
+    </resultMap>
+
+
+</mapper>

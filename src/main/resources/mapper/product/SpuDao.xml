@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.btyc.modules.product.dao.SpuDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.btyc.modules.product.entity.SpuEntity" id="spuMap">
+        <result property="id" column="ID"/>
+        <result property="categoryId" column="CATEGORY_ID"/>
+        <result property="name" column="NAME"/>
+        <result property="specs" column="SPECS"/>
+        <result property="sortNo" column="SORT_NO"/>
+        <result property="memo" column="MEMO"/>
+    </resultMap>
+
+
+    <select id="spuAll" resultType="java.util.Map">
+        SELECT
+        ID,NAME
+        FROM
+        PRODUCT_SPU
+    </select>
+
+
+</mapper>

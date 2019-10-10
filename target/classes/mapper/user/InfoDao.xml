@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.btyc.modules.user.dao.InfoDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.btyc.modules.user.entity.InfoEntity" id="infoMap">
+        <result property="id" column="ID"/>
+        <result property="userId" column="USER_ID"/>
+        <result property="orderNo" column="ORDER_NO"/>
+        <result property="cardType" column="CARD_TYPE"/>
+        <result property="cardName" column="CARD_NAME"/>
+        <result property="totalTimes" column="TOTAL_TIMES"/>
+        <result property="remaindTimes" column="REMAIND_TIMES"/>
+        <result property="endDay" column="END_DAY"/>
+        <result property="buyDay" column="BUY_DAY"/>
+        <result property="buyPrice" column="BUY_PRICE"/>
+        <result property="statusCode" column="STATUS_CODE"/>
+    </resultMap>
+
+
+</mapper>

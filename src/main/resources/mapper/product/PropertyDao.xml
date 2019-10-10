@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.btyc.modules.product.dao.PropertyDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.btyc.modules.product.entity.PropertyEntity" id="propertyMap">
+        <result property="id" column="ID"/>
+        <result property="code" column="CODE"/>
+        <result property="name" column="NAME"/>
+        <result property="dataType" column="DATA_TYPE"/>
+        <result property="sortNo" column="SORT_NO"/>
+    </resultMap>
+
+    <select id="propertyAll" resultType="java.util.Map">
+        SELECT
+        CODE,NAME
+        FROM
+        PRODUCT_PROPERTY
+    </select>
+
+
+</mapper>

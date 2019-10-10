@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.btyc.modules.payment.dao.PtradeDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.btyc.modules.payment.entity.PtradeEntity" id="ptradeMap">
+        <result property="id" column="ID"/>
+        <result property="title" column="TITLE"/>
+        <result property="cash" column="CASH"/>
+        <result property="cjtime" column="CJTIME"/>
+        <result property="statusCode" column="STATUS_CODE"/>
+        <result property="payid" column="PAYID"/>
+    </resultMap>
+
+    <insert id="createPtrade" useGeneratedKeys="true" keyProperty="id" parameterType="com.btyc.modules.payment.entity.PtradeEntity">
+        INSERT INTO PAYMENT_PTRADE (
+            TITLE,
+            CASH,
+            CJTIME,
+            STATUS_CODE
+        )
+        VALUES(
+            #{title},
+            #{cash},
+            #{cjtime},
+            #{statusCode}
+        )
+    </insert>
+
+</mapper>

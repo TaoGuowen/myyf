@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.btyc.modules.app.dao.UserDao">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.btyc.modules.app.entity.UserEntity" id="tbuserMap">
+
+        <result property="userId" column="user_id"/>
+        <result property="username" column="username"/>
+        <result property="createTime" column="create_time"/>
+        <result property="mobile" column="mobile"/>
+        <result property="openid" column="openid"/>
+        <result property="password" column="password"/>
+        <result property="status" column="status"/>
+        <result property="statusName" column="CODE_NAME"/>
+    </resultMap>
+
+    <insert id="register" useGeneratedKeys="true" keyProperty="userId" parameterType="com.btyc.modules.app.entity.UserEntity">
+        insert into tb_user(openid,mobile,status,create_time)
+        values(#{openid},#{mobile},#{status},#{createTime})
+    </insert>
+
+    <select id="selectUserList" resultMap="tbuserMap">
+        SELECT
+            u.user_id,
+            u.username,
+            u.create_time,
+            u.mobile,
+            u.openid,
+            u.`password`,
+            u.`status`,
+            p.CODE_NAME
+        FROM
+            tb_user u
+        LEFT JOIN PT_DICT p ON p.BUSI_TYPE = 'isAlive'
+        AND p.CODE_VALUE = u.`status`
+        <where>
+            ${ew.sqlSegment}
+        </where>
+    </select>
+
+</mapper>

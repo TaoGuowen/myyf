@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.btyc.modules.payment.dao.PayDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.btyc.modules.payment.entity.PayEntity" id="payMap">
+        <result property="id" column="ID"/>
+        <result property="no" column="NO"/>
+        <result property="ptradeId" column="PTRADE_ID"/>
+        <result property="payMethod" column="PAY_METHOD"/>
+        <result property="reqTime" column="REQ_TIME"/>
+        <result property="resTime" column="RES_TIME"/>
+        <result property="resMsg" column="RES_MSG"/>
+        <result property="resno" column="RESNO"/>
+        <result property="statusCode" column="STATUS_CODE"/>
+    </resultMap>
+
+
+</mapper>
